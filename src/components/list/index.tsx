@@ -9,13 +9,12 @@ interface ListProps {
 
 const List = (props: ListProps) => {
     const { children } = props;
-    console.log("children: ", children);
+    
     return (
         <ul>
             {children}
         </ul>
     )
 }
-
 
 export default observer(List);

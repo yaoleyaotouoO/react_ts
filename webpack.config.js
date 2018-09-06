@@ -19,6 +19,15 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /(\.js)|(\.jsx)|(\.ts)|(\.tsx)$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                options: {
+                    presets: ['react', 'es2015', 'stage-0', "mobx"],
+                    plugins: ['transform-runtime']
+                }
+            },
             // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
             {
                 test: /\.tsx?$/,
@@ -31,8 +40,12 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader'],
-            }
+                use: ['style-loader', 'css-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]']
+            },
+            {
+                test: /\.less$/,
+                use: ['style-loader', 'css-loader?modules&localIdentName=[local]__[hash:base64:5]', 'less-loader']
+            },
         ]
     },
     plugins: [

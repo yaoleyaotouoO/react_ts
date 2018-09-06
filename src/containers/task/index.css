@@ -1,0 +1,8 @@
+.task_center {
+    position: absolute;
+    left:50%;
+}
+
+.task_text_center {
+    text-align: center;
+}
