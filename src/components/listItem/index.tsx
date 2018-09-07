@@ -16,7 +16,7 @@ const ListItem = (props: ListItemProps) => {
     return (
         <li className={styles.list_li}>
             <input className={styles.list_check} type="checkbox" checked={isComplete} onChange={e => changeTaskStatus(taskId, e.target.checked)} />
-            <p>{name}</p>
+            <p className={`${styles.list_name} ${isComplete ? styles.list_name_complete : ''}`}>{name}</p>
             <a className={styles.list_delete} href="javascript:void(0)" onClick={() => deleteTask(taskId)}>删除</a>
         </li>
     )

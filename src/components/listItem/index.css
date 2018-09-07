@@ -8,9 +8,18 @@ p {
 }
 
 .list_check {
+    flex: 0 0 2%;
+}
 
+.list_name {
+    flex: 0 0 80%;
 }
 
 .list_delete {
     
+}
+
+.list_name_complete {
+    text-decoration: line-through;
+    color: gray;
 }

@@ -2,7 +2,8 @@ import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import { RouteComponentProps } from 'react-router-dom';
 import RootStore from '../../store/store';
-const styles = require('./index.css');
+// const styles = require('./index.css');
+import styles from './index.css';
 
 import Button from '../../components/button';
 import Count from '../../components/count';
@@ -10,6 +11,8 @@ import List from '../../components/list';
 import ListItem from '../../components/listItem';
 import Input from '../../components/Input';
 
+
+console.log("styles: ", styles);
 
 interface ITask {
     id: number;
@@ -77,7 +80,7 @@ export default class Task extends React.Component<TaskProps, TaskState> {
         return (
             <div className={styles.task_center}>
 
-                <p className={styles.task_text_center}>任务便签</p>
+                <h3 className={styles.task_text_center}>任务便签</h3>
 
                 <List>
                     {
@@ -94,11 +97,11 @@ export default class Task extends React.Component<TaskProps, TaskState> {
                     }
                 </List>
 
-                {(!task && warning) && <p style={{ color: 'red' }}>{warning}</p>}
-
                 <Count
                     total={taskList.length}
                     complete={taskList.filter(x => x.isComplete).length} />
+
+                {(!task && warning) && <p style={{ color: 'red' }}>{warning}</p>}
 
                 <Input
                     lable={'任务'}

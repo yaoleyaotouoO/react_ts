@@ -1,4 +1,5 @@
-import * as React from 'react'
+import * as React from 'react';
+const styles = require('./index.css');
 
 interface ButtonProps {
     children: React.ReactNode;
@@ -9,7 +10,9 @@ const Button = (props: ButtonProps) => {
     const { children, onClick = () => { } } = props;
 
     return (
-        <button onClick={() => { onClick() }}>{children}</button>
+        <div className={styles.task_div}>
+            <button className={styles.task_btn} onClick={() => { onClick() }}>{children}</button>
+        </div>
     )
 }
 

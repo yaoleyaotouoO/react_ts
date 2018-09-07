@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
+const styles = require('./index.css');
 
 import ListItem, { ListItemProps } from '../listItem';
 
@@ -9,9 +10,9 @@ interface ListProps {
 
 const List = (props: ListProps) => {
     const { children } = props;
-    
+
     return (
-        <ul>
+        <ul className={styles.task_ul}>
             {children}
         </ul>
     )

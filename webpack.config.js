@@ -40,11 +40,11 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]']
+                use: ['style-loader', 'css-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]', 'postcss-loader']
             },
             {
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader?modules&localIdentName=[local]__[hash:base64:5]', 'less-loader']
+                use: ['style-loader', 'css-loader?modules&localIdentName=[local]__[hash:base64:5]', 'less-loader', 'postcss-loader']
             },
         ]
     },

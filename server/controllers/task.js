@@ -7,7 +7,6 @@ class TaskController {
     async fetchTaskList() {
         let data = fs.readFileSync(filePath);
         data = JSON.parse(data);
-        
         return data;
     }
 

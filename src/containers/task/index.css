@@ -1,6 +1,8 @@
 .task_center {
-    position: absolute;
-    left:50%;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    width: 400px;
 }
 
 .task_text_center {

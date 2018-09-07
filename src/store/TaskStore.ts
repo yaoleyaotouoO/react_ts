@@ -24,7 +24,7 @@ export default class TaskStore {
     fetchTaskList = async () => {
         const res = await this.rootStore.axios.get(Api.task.fetchTaskList);
         runInAction('fetchTaskList', () => {
-            this.taskList = res.data;
+            this.taskList = res.data || [];
         });
     }
 
