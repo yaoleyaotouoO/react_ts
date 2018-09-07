@@ -2,8 +2,8 @@ import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import { RouteComponentProps } from 'react-router-dom';
 import RootStore from '../../store/store';
-// const styles = require('./index.css');
-import styles from './index.css';
+const styles = require('./index.less');
+// import styles from './index.less';
 
 import Button from '../../components/button';
 import Count from '../../components/count';
@@ -12,7 +12,7 @@ import ListItem from '../../components/listItem';
 import Input from '../../components/Input';
 
 
-console.log("styles: ", styles);
+console.log("styles111: ", styles);
 
 interface ITask {
     id: number;

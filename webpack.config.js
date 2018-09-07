@@ -15,7 +15,7 @@ module.exports = {
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx", ".js", ".json"]
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.less']
     },
     module: {
         rules: [
@@ -38,13 +38,29 @@ module.exports = {
                 test: /\.js$/,
                 loader: "source-map-loader"
             },
+            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]', 'postcss-loader']
+                use: ['style-loader', 'css-loader?modules&localIdentName=[local]__[hash:base64:5]', 'postcss-loader'],
             },
             {
+                // test: /\.less$/,
+                // use: {
+                //     loader: 'css-loader',
+                //     options: {
+                //         modules: true,
+                //         localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                //     }
+                // }
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader?modules&localIdentName=[local]__[hash:base64:5]', 'less-loader', 'postcss-loader']
+                use: ['style-loader', 'css-loader?modules&localIdentName=[local]__[hash:base64:5]', 'postcss-loader', 'less-loader']
+            },
+            {
+                test: /\.(png|jpg|gif|svg|eot|svg|ttf|woff|woff2)$/,
+                loader: 'file-loader',
+                options: {
+                    name: 'img/styleResource/[name].[ext]'
+                }
             },
         ]
     },
