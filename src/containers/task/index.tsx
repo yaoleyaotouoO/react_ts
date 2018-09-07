@@ -12,7 +12,7 @@ import ListItem from '../../components/listItem';
 import Input from '../../components/Input';
 
 
-console.log("styles111: ", styles);
+// console.log("styles: ", styles);
 
 interface ITask {
     id: number;
