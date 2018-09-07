@@ -6,7 +6,8 @@ const filePath = path.join(__dirname, '../data/task.json');
 class TaskController {
     async fetchTaskList() {
         let data = fs.readFileSync(filePath);
-        data = JSON.parse(data);
+        data = JSON.parse(data).sort((a, b) => a.id - b.id);
+
         return data;
     }
 
