@@ -2,8 +2,7 @@ import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import { RouteComponentProps } from 'react-router-dom';
 import RootStore from '../../store/store';
-const styles = require('./index.less');
-// import styles from './index.less';
+import { task_center, task_text_center } from './index.css';
 
 import Button from '../../components/button';
 import Count from '../../components/count';
@@ -11,8 +10,6 @@ import List from '../../components/list';
 import ListItem from '../../components/listItem';
 import Input from '../../components/Input';
 
-
-// console.log("styles: ", styles);
 
 interface ITask {
     id: number;
@@ -78,9 +75,9 @@ export default class Task extends React.Component<TaskProps, TaskState> {
         const { taskList } = taskStore;
 
         return (
-            <div className={styles.task_center}>
+            <div className={task_center}>
 
-                <h3 className={styles.task_text_center}>任务便签</h3>
+                <h3 className={task_text_center}>任务便签</h3>
 
                 <List>
                     {

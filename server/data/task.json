@@ -1,1 +1,1 @@
-[{"id":4,"name":"task4","isComplete":false},{"id":2,"name":"task2","isComplete":false},{"id":1,"name":"task1","isComplete":false},{"id":3,"name":"task3","isComplete":false},{"id":5,"name":"task5","isComplete":false}]
+[{"id":4,"name":"task4","isComplete":false},{"id":2,"name":"task2","isComplete":false},{"id":1,"name":"task1","isComplete":false},{"id":3,"name":"task3","isComplete":true},{"id":5,"name":"task5","isComplete":true}]

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
-const styles = require('./index.css');
+import { list_li, list_check, list_name, list_name_complete, list_delete } from './index.css';
 
 export interface ListItemProps {
     deleteTask(taskId: number): void;
@@ -14,10 +14,10 @@ const ListItem = (props: ListItemProps) => {
     const { deleteTask = () => { }, taskId, name, isComplete, changeTaskStatus = () => { } } = props;
 
     return (
-        <li className={styles.list_li}>
-            <input className={styles.list_check} type="checkbox" checked={isComplete} onChange={e => changeTaskStatus(taskId, e.target.checked)} />
-            <p className={`${styles.list_name} ${isComplete ? styles.list_name_complete : ''}`}>{name}</p>
-            <a className={styles.list_delete} href="javascript:void(0)" onClick={() => deleteTask(taskId)}>删除</a>
+        <li className={list_li}>
+            <input className={list_check} type="checkbox" checked={isComplete} onChange={e => changeTaskStatus(taskId, e.target.checked)} />
+            <p className={`${list_name} ${isComplete ? list_name_complete : ''}`}>{name}</p>
+            <a className={list_delete} href="javascript:void(0)" onClick={() => deleteTask(taskId)}>删除</a>
         </li>
     )
 }

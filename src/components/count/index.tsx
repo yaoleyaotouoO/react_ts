@@ -1,5 +1,5 @@
 import * as React from 'react';
-const styles = require('./index.css');
+import { task_count } from './index.css';
 
 interface CountProps {
     complete: number;
@@ -10,7 +10,7 @@ const Count = (props: CountProps) => {
     const { complete, total } = props;
 
     return (
-        <div className={styles.task_count}>
+        <div className={task_count}>
             <span>{complete || 0} 已完成/ </span><span>{total || 0} 总数</span>
         </div>
     )

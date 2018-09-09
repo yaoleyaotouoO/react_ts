@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
-const styles = require('./index.css');
+import { task_ul } from './index.css';
 
 import ListItem, { ListItemProps } from '../listItem';
 
@@ -12,7 +12,7 @@ const List = (props: ListProps) => {
     const { children } = props;
 
     return (
-        <ul className={styles.task_ul}>
+        <ul className={task_ul}>
             {children}
         </ul>
     )
