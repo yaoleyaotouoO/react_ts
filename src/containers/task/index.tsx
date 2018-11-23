@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { observer, inject } from 'mobx-react';
 import { RouteComponentProps } from 'react-router-dom';
+import { observer, inject } from 'mobx-react';
 import RootStore from '../../store/store';
 import { task_center, task_text_center } from './index.css';
 
@@ -11,13 +11,7 @@ import ListItem from '../../components/listItem';
 import Input from '../../components/Input';
 
 
-interface ITask {
-    id: number;
-    name: string;
-    isComplete: boolean;
-}
-
-export interface TaskProps {
+export interface TaskProps extends RouteComponentProps<{}> {
     rootStore?: RootStore;
 }
 
@@ -57,7 +51,7 @@ export default class Task extends React.Component<TaskProps, TaskState> {
     }
 
     submit = () => {
-        const { task, warning } = this.state;
+        const { task } = this.state;
         const { rootStore: { taskStore } } = this.props;
 
         if (task.trim() === '') {
@@ -69,7 +63,7 @@ export default class Task extends React.Component<TaskProps, TaskState> {
         taskStore.addTask(task);
     }
 
-    public render() {
+    render() {
         const { task, warning } = this.state;
         const { rootStore: { taskStore } } = this.props;
         const { taskList } = taskStore;

@@ -18,8 +18,7 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.less']
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /(\.js)|(\.jsx)|(\.ts)|(\.tsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
@@ -40,11 +39,39 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'typings-for-css-modules-loader?modules&namedExport&localIdentName=[local]__[hash:base64:5]', 'postcss-loader']
+                exclude: [path.join(__dirname, 'node_modules'), path.join(__dirname, 'src/assets/style')],
+                use: [{
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'typings-for-css-modules-loader',
+                        options: {
+                            modules: true,
+                            namedExport: true,
+                            localIdentName: '[local]__[hash:base64:5]'
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader'
+                    }
+                ]
             },
             {
-                test: /\.less$/,
-                use: ['style-loader', 'typings-for-css-modules-loader?modules&namedExport&localIdentName=[local]__[hash:base64:5]', 'postcss-loader', 'less-loader']
+                test: /\.css$/,
+                include: [path.join(__dirname, 'node_modules'), path.join(__dirname, 'src/assets/style')],
+                use: [{
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: false
+                        },
+                    },
+                    {
+                        loader: 'postcss-loader'
+                    }
+                ]
             },
             {
                 test: /\.(png|jpg|gif|svg|eot|svg|ttf|woff|woff2)$/,
@@ -56,13 +83,12 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin(
-            {
-                hash: true,
-                inject: true,
-                chunks: ['app'],
-                template: 'index.html',
-                filename: 'index.html'
-            })
+        new HtmlWebpackPlugin({
+            hash: true,
+            inject: true,
+            chunks: ['app'],
+            template: 'index.html',
+            filename: 'index.html'
+        })
     ]
 };
