@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import Scrollbars from 'react-custom-scrollbars';
 import * as style from './index.css';
+import HidePopupUtil from '../../util/hidePopup';
 
 
 export interface IIdName {
@@ -77,6 +78,7 @@ export class DropDownWithFilter extends React.Component<IDropDownWithFilterProps
     scroll: Scrollbars;
     dropDownNode: React.Ref<HTMLDivElement>;
     ulNode: React.Ref<HTMLDivElement>;
+    hidePopupUtil: { clear: () => void };
 
     constructor(props: IDropDownWithFilterProps) {
         super(props);
@@ -88,16 +90,20 @@ export class DropDownWithFilter extends React.Component<IDropDownWithFilterProps
             height
         }
 
-        this.dropDownNode = React.createRef()
-        this.ulNode = React.createRef()
+        this.dropDownNode = React.createRef();
+        this.ulNode = React.createRef();
     }
 
     componentDidMount() {
-
+        this.hidePopupUtil = HidePopupUtil.init((this.dropDownNode as any).current, () => {
+            if (this.state.open) {
+                this.setState({ open: false });
+            }
+        })
     }
 
     componentWillUnmount() {
-
+        this.hidePopupUtil && this.hidePopupUtil.clear();
     }
 
     componentWillReceiveProps(nextProps: IDropDownWithFilterProps) {
