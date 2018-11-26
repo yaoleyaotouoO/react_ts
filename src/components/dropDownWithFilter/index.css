@@ -1,7 +1,3 @@
-.select_body {
-    width: 216px;
-}
-
 .search_group {
     margin: 5px 0;
     position: relative;
@@ -103,6 +99,26 @@
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+.multi_select_dropdown li {
+    padding: 8px 10px;
+}
+
+.multi_select_dropdown li:hover {
+    background: #f1f1f1;
+}
+
+.multi_select_dropdown li.filter:hover {
+    background: transparent;
+}
+
+.multi_select_dropdown li .form_check {
+    padding-top: 0;
+}
+
+.multi_select_dropdown li .form_check .form_check_label span {
+    white-space: nowrap;
 }
 
 .dropdown_menu.show {
@@ -257,6 +273,8 @@
 
 .form_check_label {
     margin-bottom: 0;
+    min-width: 100%;
+    cursor: pointer;
 }
 
 .form_check_label span {
