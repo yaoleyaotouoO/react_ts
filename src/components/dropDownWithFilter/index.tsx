@@ -143,12 +143,13 @@ export class DropDownWithFilter extends React.Component<IDropDownWithFilterProps
     }
 
     searchTextOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const items = this.props.data.rawData;
+        const { rawData } = this.props.data;
+
         let filterText = e.target.value;
-        let count = items.filter(item => item.name.match(new RegExp(filterText, 'ig'))).length;
+        let count = rawData.filter(item => item.name.match(new RegExp(filterText, 'ig'))).length;
 
         if (!filterText) {
-            count = this.props.data.rawData.length;
+            count = rawData.length;
             count ? count++ : count;
         }
 

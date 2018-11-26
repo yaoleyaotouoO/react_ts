@@ -10,7 +10,7 @@ import './assets/style/main.css';
 import Task from './containers/task';
 import Design from './containers/design';
 import Select from './containers/design/components/select';
-import Animation from './components/animation';
+import Animation from './containers/design/components/animation';
 
 
 const rootStore = new RootStore();

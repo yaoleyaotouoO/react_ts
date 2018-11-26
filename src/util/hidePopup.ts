@@ -17,7 +17,7 @@ const _onDocumentClick = (e: any) => {
         }
 
         obj.callbacks.forEach(callback => callback());
-    })
+    });
 }
 
 window.document.body.addEventListener('click', _onDocumentClick);
@@ -44,7 +44,7 @@ const HidePopupUtil = {
             targetMapping.push({
                 element,
                 callbacks: [callback]
-            })
+            });
         }
 
         return {

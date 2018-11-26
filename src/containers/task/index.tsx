@@ -32,6 +32,13 @@ export default class Task extends React.Component<TaskProps, TaskState> {
         }
     }
 
+    componentWillMount() {
+    }
+
+    componentWillUnmount() {
+
+    }
+
     componentDidMount() {
         const { rootStore: { taskStore } } = this.props;
 
