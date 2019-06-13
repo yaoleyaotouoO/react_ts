@@ -1,23 +1,33 @@
 {
-    "compilerOptions": {
-        "outDir": "./dist/",
-        "sourceMap": true,
-        "noImplicitAny": true,
-        "module": "commonjs",
-        "target": "es5",
-        "jsx": "react",
-        "experimentalDecorators": true,
-        "lib": [
-            "es5",
-            "es2015",
-            "dom",
-            "scripthost"
-        ]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "es5",
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "paths": {
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@util/*": [
+        "./src/util/*"
+      ]
     },
-    "include": [
-        "./src/**/*"
-    ],
-    "exclude": [
-        "node_modules"
+    "lib": [
+      "es5",
+      "es2017",
+      "dom",
+      "scripthost"
     ]
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

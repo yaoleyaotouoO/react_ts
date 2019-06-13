@@ -1,4 +1,29 @@
 {
-  "presets": ["env", "es2015", "react", "stage-0", "mobx"],
-  "plugins": ["transform-runtime"]
+  "presets": ["react", "env"],
+  "plugins": [
+    "transform-object-rest-spread",
+    "transform-class-properties",
+    "syntax-dynamic-import",
+    [
+      "transform-runtime",
+      {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true
+      }
+    ]
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        ["react-transform", {
+          "transforms": [{
+            "transform": "react-transform-hmr",
+            "imports": ["react"],
+            "locals": ["module"]
+          }]
+        }]
+      ]
+    }
+  }
 }
